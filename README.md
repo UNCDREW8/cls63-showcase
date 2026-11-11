@@ -1,6 +1,5 @@
 # CLS 63 — Quiet luxury. Brutal presence.
 
-https://uncledrew8.github.io/cls63-showcase/.
 A single-page, dark editorial showcase for the Mercedes-AMG CLS 63 S.
 This is an independent concept site and not an official Mercedes-Benz website.
 
