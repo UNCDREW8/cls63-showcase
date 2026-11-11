@@ -95,6 +95,9 @@ Nearly everything you'd want to change is in **one file**: [`src/data/site.ts`](
 | [`DESIGN.md`](DESIGN.md) | Design specs: palette, type, layout, motion rules, section by section |
 | [`NOTES.md`](NOTES.md) | Decisions, sources, photo credits and known limits |
 | [`CLAUDE.md`](CLAUDE.md) | Working notes for AI coding assistants contributing to this repo |
+| [`docs/Project log.md`](docs/Project%20log.md) | How the project was built, where it stands, and what's open |
+
+> **Obsidian user?** This repo doubles as a vault. Clone it, open the folder in Obsidian, and start at `docs/Home.md`.
 
 ## Credits & license
 

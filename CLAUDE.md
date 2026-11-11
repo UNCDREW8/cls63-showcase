@@ -4,7 +4,7 @@ Guidance for AI coding assistants working in this repository.
 
 ## What this is
 
-A single-page scroll showcase for the Mercedes-AMG CLS 63, built with React, TypeScript and Vite. It's a dark, editorial look, and the car is always the subject. Read `DESIGN.md` before changing anything visual.
+A single-page scroll showcase for the Mercedes-AMG CLS 63, built with React, TypeScript and Vite. It's a dark, editorial look, and the car is always the subject. Read `docs/Project log.md` first (history, owner preferences, open items), and `DESIGN.md` before changing anything visual.
 
 ## Commands
 
@@ -62,3 +62,4 @@ scripts/process_photos.py   background removal + black grade + plate redaction
 2. Check the page at desktop (1440px) and mobile (390px), with reduced motion on and off.
 3. Look at the light trace: does the line still sit on the car's shoulder?
 4. Update `README.md`, `DESIGN.md` or `NOTES.md` if behaviour, design or sources changed.
+5. Add a line to `docs/Project log.md` (timeline + open items). Never put prompts or personal info in it: the repo is public.
