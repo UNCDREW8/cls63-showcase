@@ -49,6 +49,20 @@ def cover(img: Image.Image, size, gy):
     return im.crop((x, y, x + W, y + H))
 
 
+# Areas to blank out after cropping (fractions of the output size):
+# the rear photo shows a real licence plate.
+REDACT = {'rear': [(0.392, 0.378, 0.605, 0.570)]}
+
+
+def redact(im: Image.Image, boxes):
+    from PIL import ImageDraw
+    d = ImageDraw.Draw(im)
+    for x0, y0, x1, y1 in boxes:
+        W, H = im.size
+        d.rounded_rectangle((x0 * W, y0 * H, x1 * W, y1 * H), radius=int(0.006 * W), fill=(11, 11, 11))
+    return im
+
+
 def vignette(w, h, strength=0.85):
     yy, xx = np.mgrid[0:h, 0:w]
     d = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h * 0.55) / (h / 2)) ** 2) / 1.25
@@ -73,6 +87,8 @@ for slot, (name, size, cut, gy) in SOURCES.items():
     im = Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
     if size:
         im = cover(im, size, gy)
+    if slot in REDACT:
+        im = redact(im, REDACT[slot])
     im.save(OUT / f'{slot}.jpg', quality=84, optimize=True, progressive=True)
     if im.width > 1200:
         im.resize((1200, round(im.height * 1200 / im.width)), Image.LANCZOS).save(

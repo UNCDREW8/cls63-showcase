@@ -120,7 +120,7 @@ export const intro = {
   // Each array entry is one revealed line of the heading.
   heading: ['Presence,', 'without permission.'],
   body:
-    'A coupé roofline stretched over four doors, and under the bonnet a hand-assembled AMG V8. The CLS 63 S looks calm. It is not. That gap between composure and force is the whole point of the car.',
+    'A coupé roofline stretched over four doors, and under the bonnet a hand-assembled AMG V8. The CLS 63 looks calm. It is not. That gap between composure and force is the whole point of the car.',
 };
 
 /* ── PINNED DESIGN SEQUENCE ───────────────────────────────── */
@@ -149,8 +149,8 @@ export const design = {
     slot: 'profile' as SlotId,
     viewBox: [1200, 742] as const,
     path: 'M 132 424 C 200 410, 300 404, 400 412 C 520 420, 700 424, 860 424 C 960 423, 1040 412, 1106 406',
-    head: { x: 104, y: 428, r: 34 },
-    tail: { x: 1132, y: 420, r: 30 },
+    head: { x: 100, y: 436, r: 34 },
+    tail: { x: 1136, y: 428, r: 28 },
     redFrom: 980, // x where the line begins warming to taillight red
     final: 'Every line has intent.',
   },
