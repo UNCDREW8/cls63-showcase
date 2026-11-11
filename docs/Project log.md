@@ -33,7 +33,7 @@ Stack required: React + TypeScript, **Lenis** for smooth scroll, **GSAP + Scroll
 7. **Photos processed on GitHub Actions** (`photos.yml`): downloaded, background removed (rembg), paint graded to black on black, and committed. The **licence plate** in the rear photo was **blanked out**.
 8. **Light trace aligned** to the processed photo, and the glow positions were tuned.
 9. **Docs:** README rewritten, plus [[DESIGN]], [[NOTES]], [[CLAUDE]] and an MIT `LICENSE`.
-10. **Obsidian:** this log and [[Home]] were added so the repo works as an Obsidian vault.
+10. **Obsidian:** this log and [[Home]] were added so the repo works as an Obsidian vault. The notes were also added to the owner's Obsidian vault in a `CLS 63` folder.
 
 ## Where things are
 
@@ -62,3 +62,4 @@ Stack required: React + TypeScript, **Lenis** for smooth scroll, **GSAP + Scroll
 - Image downloads and processing run best on **GitHub Actions** (see `photos.yml`), with the results committed to the repo.
 - Repo settings such as Pages are changed in the GitHub web UI.
 - The light trace is tied to `profile.jpg` at exactly 1200 × 742. Re-trace it if that photo changes.
+- The Obsidian notes are a copy. The repo is the source of truth, so re-copy them after big changes.
