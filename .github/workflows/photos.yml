@@ -1,0 +1,44 @@
+name: Prepare photos
+
+# One-off: downloads the 2013 CLS63 AMG photo set (Wikimedia Commons,
+# Michael Sheehan, CC BY 2.0), removes backgrounds, grades the car to
+# black on black and commits the results to src/assets/cls63.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install "rembg[cpu]" pillow numpy
+      - name: Download originals
+        run: |
+          mkdir -p originals && cd originals
+          UA="cls63-showcase/1.0 (GitHub Actions; photo preparation)"
+          C=https://upload.wikimedia.org/wikipedia/commons
+          dl() { curl -fsSL -A "$UA" -o "$1" "$2"; sleep 1; }
+          dl Side_View.jpg       "$C/6/61/Side_View_-_2013_Mercedes_CLS_63_AMG_%289270241280%29.jpg"
+          dl Front_Overhead.jpg  "$C/a/af/Front_Overhead_-_2013_Mercedes_CLS_63_AMG_%289267459941%29.jpg"
+          dl Headlight.jpg       "$C/3/3a/Headlight_-_2013_Mercedes_CLS_63_AMG_%289267460829%29.jpg"
+          dl Rear.jpg            "$C/b/bd/Rear_-_2013_Mercedes_CLS_63_AMG_%289270242342%29.jpg"
+          dl Front_Wheel.jpg     "$C/9/98/Front_Wheel_-_2013_Mercedes_CLS_63_AMG_%289267460745%29.jpg"
+          dl Engine_Close-up.jpg "$C/e/e2/Engine_Close-up_-_2013_Mercedes_CLS_63_AMG_%289270242990%29.jpg"
+          dl Engine.jpg          "$C/6/6e/Engine_-_2013_Mercedes_CLS_63_AMG_%289267461479%29.jpg"
+          dl Steering_Wheel.jpg  "$C/4/4e/Steering_Wheel_-_2013_Mercedes_CLS_63_AMG_%289267460443%29.jpg"
+          ls -la
+      - name: Process
+        run: python scripts/process_photos.py originals src/assets/cls63
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/assets/cls63
+          git commit -m "Add processed CLS63 AMG photos" || echo "nothing to commit"
+          git push
