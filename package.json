@@ -1,7 +1,6 @@
 {
-  "name": "cls63",
-  "private": true,
-  "version": "0.0.0",
+  "name": "cls63-showcase",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -30,5 +29,7 @@
     "typescript": "~7.0.2",
     "vite": "^8.3.6",
     "vite-plugin-singlefile": "^2.3.4"
-  }
+  },
+  "license": "MIT",
+  "description": "CLS 63 — a dark, editorial scroll showcase (React, Lenis, GSAP ScrollTrigger)"
 }
